@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <title> Plate Crack Propagation </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="3scrack.js"></script>
+        <script src="js/icon.js" ></script>
+        <link rel="stylesheet" href="3scrack.css">
+
+        <div class="topNav">
+            <div class="topNavChild">
+            <a class="active" href="#home"><i style='font-size:20px' class='fas fa-house-user'></i> CrackCalc</a>
+            </div>
+            <a id="toggleButton" href="javascript:void(0)" onclick="openTgl()"><i style='font-size:20px' class='far'>&#xf2bd;</i></a>
+            <a href="#news"><i style='font-size:20px' class='fas'>&#xf3e0;</i></a>
+            <a href="#concept"><i style='font-size:20px' class='fas'>&#xf542;</i></a>
+        </div>
+        
+      
+        <div id="mySideNav" class="sideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-angle-double-left"></i></a>
+            <a href="#introductionSection">Introduction</a>
+            <a href="#referencesSection">Code <i style="font-size:20px" class="fas fa-book"></i></a>
+            <a href="#inputDataSection">Input Data <i style="font-size:20px" class="fas">&#xf545;</i></a>
+            <a href="#calculationSection">Calculation <i style='font-size:20px' class='fas'>&#xf1ec;</i></a>
+        </div>
+
+        <div id="toggle" class="toggleDropdown">
+            <a href="#profile">Profile</a>
+            <a href="#project">Project <i class="far fa-folder"></i></a>
+            <a href="#notes">Notes</a>
+        </div>
+    </HEAD>
+<BODY>
+    <MAIN>
+
+        <div id="content">
+            <button class="openbtn" onclick="openNav()"><i style="font-size:15px" class="fas fa-angle-right"></i></button>
+            <div id="introductionSection">
+            <h1>Fatigue Crack Calculation</h1>
+            <img src="image\fatigue.png" alt="Fatigue Illustration">
+            <P>Following calculations are based on code British Standard (BS) 7910.</P><br>
+            </div>
+
+            <div id="referencesSection">
+            <h1>Code/Standard</h1>
+            <p>1) BS7910, Guide on methods for assessing the acceptability of flaws in metallic structures, 2010.</p>
+            <p>2) Pipeline integrity assurance a practical approach, ASME 2010.</p><br>
+            </div>
+
+            <div id="inputDataSection">
+            <h1>Input Data</h1>
+            <label for="crackType">Select Crack Type</label>
+            <select id="crackType" onchange="changeImg()">
+                <option value="through"><b>Through-Crack</b></option>
+                <option value="edge"><b>Edge-Crack</b></option>
+            </select><br>
+
+            <img id="crackImg" src="image/throughCrackImage.png">
+
+            <h2>a. Flaw Dimension</h2>
+            <form>
+                <label for="crackLength">Crack Length, a (mm)</label>
+                <input type="number" id="crackLength"><br>
+            </form>
+
+            <h2>b. Geometry</h2>
+            <form>
+                <label for="thickness">Plate Thickness, B (mm)</label>
+                <input type="number" id="thickness"><br>
+                <label for="width">Section Width, W (mm)</label>
+                <input type="number" id="width"><br>
+            </form>
+
+            <h2>c. Misalignment</h2>
+            <form>
+                <label for="misalignment">Misalignment Factor</label>
+                <input type="number" id="misalignment"><br>
+                <label for="discontinuity">Discontinuity Factor</label>
+                <input type="number" id="discontinuity"><br>
+            </form>
+
+            <h2>d. Primary Stress</h2>
+            <form>
+                <label for="membrane">Membrane Stress (MPa)</label>
+                <input type="number" id="membrane"><br>
+                <label for="bending">Bending Stress (MPa)</label>
+                <input type="number" id="bending"><br>
+                <label for="membraneFactor">Membrane Stress Conc. Factor</label>
+                <input type="number" id="membraneFactor"><br>
+                <label for="bendingFactor">Bending Stress Conc. Factor</label>
+                <input type="number" id="bendingFactor"><br>
+            </form>
+
+            <h2>e. Secondary Stress</h2>
+            <form>
+                <label for="thermalMembrane">Thermal Membrane Stress (MPa)</label>
+                <input type="number" id="thermalMembrane"><br>
+                <label for="thermalBending">Thermal Bending Stress (MPa)</label>
+                <input type="number" id="thermalBending"><br>
+            </form>
+
+            <h2>f. Tensile Properties</h2>
+            <form>
+                <label for="yield">Yield Strength (MPa)</label>
+                <input type="number" id="yield"><br>
+                <label for="tensile">Tensile Strength (MPa)</label>
+                <input type="number" id="tensile"><br>
+                <label for="youngModulus">Young Modulus (MPa)</label>
+                <input type="number" id="youngModulus"><br>
+                <label for="poissonRatio">Poisson Ratio</label>
+                <input type="number" id="poissonRatio"><br>
+            </form>
+
+            <h2>g. Toughness Data</h2>
+            <form>
+                <label for="Kmat">Fracture Toughness (MPa.m^0.5)</label>
+                <input type="number" id="Kmat"><br>
+                <label for="C">C, Paris Coefficient</label>
+                <input type="number" id="C"><br>
+                <label for="m">m, Paris Coefficient</label>
+                <input type="number" id="m"><br>
+            </form>
+
+            <h2>h. Cyclic Load</h2>
+            <form>
+                <label for="cycle">Cycle</label>
+                <input type="number" id="cycle"><br>
+            </form>
+            </div>
+            
+            <div id="calculationSection">
+            <h1>Calculation</h1>
+            <p>Calculation stop at <span id="cycleShow" style="font-weight:bold;color:white;">xx</span> cycle</p>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Value</th>
+                    <th>Unit</th>
+                </tr>
+                <tr>
+                    <td >KI</td>
+                    <td id="stressIntensity"></td>
+                    <td>MPa.m^0.5</td>
+                </tr>
+                <tr>
+                    <td >Crack Length</td>
+                    <td id="crackLengthFinal"></td>
+                    <td>mm</td>
+                </tr>
+            </table><br>
+            <button type="button" id="calculate" onclick ="crackPropagation()">Calculate!</button><br>
+            </div>
+
+        </div>
+    </MAIN>
+</BODY>
+</HTML>

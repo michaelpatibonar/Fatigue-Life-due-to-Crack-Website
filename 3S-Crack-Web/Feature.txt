@@ -1,0 +1,15 @@
+Feature:
+- Chatbot
+- Warning limitations
+- share icon (wa, tw, fb etc)
+- option calculation (BS 7910 or API 579)
+- disabled button when required data isnt sufficient
+- warning limitations on input column
+- pop up the reason of calculation ended
+- pop up icon name
+- change background color
+- clear all input datas
+
+icon (w3schools):
+- bookmark icon (icons object)
+- 

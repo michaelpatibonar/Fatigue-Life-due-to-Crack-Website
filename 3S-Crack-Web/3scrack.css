@@ -1,0 +1,217 @@
+* {
+    font-family: calibri;
+}
+
+body {
+    background-color:white;
+    margin: 0;
+}
+
+.topNav {
+    background-color: rgb(184, 47, 47);
+    overflow: hidden;
+    position: fixed;    /*set the bar to be fixed*/
+    top: 0;             /*set the bar fixed at the top*/
+    width: 100%;        /*set the bar width to 100%*/
+    z-index: 1;
+}
+
+.topNavChild {
+    float:left;
+}
+
+.topNav a {
+    font-size: 20px;
+    font-style: bold;
+    color: silver;
+    float: right;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+.topNav a:hover {
+    background-color:rgb(214, 139, 139);
+    color: white;
+    border-bottom: 2px solid red;
+}
+
+.topNav a:active {
+    background-color: grey;
+    color: white;
+    border-bottom: solid red;
+}
+
+.sideNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 43px;
+    left: 0;
+    background-color: silver;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+}
+
+.sideNav a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.5s;
+}
+
+.sideNav a:hover {
+    color: rgb(207, 15, 15);
+}
+
+.sideNav a:active {
+    color: yellow;
+}
+
+.sideNav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    top: 42px;
+    height: 100%;
+    left:0;
+    width: 20px;
+    position: fixed;
+    /*Position is not defined to avoid overlay with top bar*/
+}
+
+.toggleDropdown {
+    position: fixed;
+    background-color: silver;
+    border-radius: 2%;
+    height: 350px;
+    top: 43px;
+    width: 0;
+    margin-top: 0;
+    right: 0;
+    z-index: 2;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.toggleDropdown a{
+    padding: 15px;
+    font-size: 20px;
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+
+.toggleDropdown a:hover {
+    color:red;
+}
+
+/* To move content to the right when side navigation opened*/
+#content {
+    margin-top: 60px;
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+h1 {
+    color:rgb(115, 14, 14);
+    margin: 15px;
+}
+
+h2 {
+    color:darkolivegreen;
+    margin: 15px;
+}
+
+p {
+    margin: 15px;
+}
+
+img {
+    margin: 0;
+    width: 100%;
+}
+
+#crackImg {
+    left: 0;
+    width: 50%;
+}
+
+label {
+    margin-left:15px;
+    display: inline-block;
+    width: 400px;
+}
+
+ul {
+    list-style: none;
+}
+
+label {
+    text-align: left;
+}
+
+.listWidth {
+    width: 200px;
+}
+
+input {
+    margin-bottom: 15px;
+    text-align: right;
+    /*Position is not defined to avoid overlay with top bar*/
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 5px;
+    margin: 15px;
+}
+
+td {
+    text-align: center;
+}
+
+#calculate {
+    padding: 5px;
+    margin: 15px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#bottomBar {
+    background-color: rgb(128, 38, 38);
+    height: 250px;
+    margin-bottom:0;
+    display: flex;
+}
+
+#aboutBox, #serviceBox, #programBox {
+    margin: auto;
+    width: 25%;
+    height: 200px;
+    color: white;
+    text-align: start;
+}
+
+.boxTitle {
+    font-size: 25px;
+    font-weight: bold;
+    color:grey  ;
+}
+
+#copyrightBar {
+    height: 50px;
+    width: 100%; 
+    background-color: black;
+}
